@@ -3,9 +3,13 @@
 using MudBlazor;
 using STGeneticsWeb.Models.Dtos;
 using Microsoft.AspNetCore.Components;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 public partial class AnimalsComponent
 {
+    [Inject] public HttpClient Http { get; set; }
+
     [Parameter] public EventCallback<HashSet<AnimalDto>> OnSelectedAnimals { get; set; }
 
 
@@ -49,8 +53,17 @@ public partial class AnimalsComponent
 
     private async Task<TableData<AnimalDto>> AnimalsReload(TableState state)
     {
-        IEnumerable<AnimalDto> data = GetAnimalsData();
-        //await httpClient.GetFromJsonAsync<List<Element>>("webapi/periodictable");
+        IEnumerable<AnimalDto> data;
+
+        try
+        {
+             data = await Http.GetFromJsonAsync<AnimalDto[]>("sample-data/animals.json");
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+        }
 
         data = data.Where(element =>
         {
@@ -115,62 +128,4 @@ public partial class AnimalsComponent
 
         return new TableData<AnimalDto>() { TotalItems = animalsTotalItems, Items = AnimalsPagedData };
     }
-
-    private List<AnimalDto> GetAnimalsData()
-    {
-        return new List<AnimalDto>()
-        {
-            new AnimalDto {
-                AnimalId = Guid.NewGuid(),
-                Code = "001",
-                Name = "Test 1",
-                BreedName = "Breed 1",
-                BirthDate = DateTime.Now,
-                Price = 1000,
-                Sex = "M",
-                Status = 1
-            },
-            new AnimalDto {
-                AnimalId = Guid.NewGuid(),
-                Code = "002",
-                Name = "Test 2",
-                BreedName = "Breed 2",
-                BirthDate = DateTime.Now,
-                Price = 2500,
-                Sex = "F",
-                Status = 1
-            },
-            new AnimalDto {
-                AnimalId = Guid.NewGuid(),
-                Code = "003",
-                Name = "Test 3",
-                BreedName = "Breed 3",
-                BirthDate = DateTime.Now,
-                Price = 1500,
-                Sex = "M",
-                Status = 1
-            },
-            new AnimalDto {
-                AnimalId = Guid.NewGuid(),
-                Code = "004",
-                Name = "Test 4",
-                BreedName = "Breed 4",
-                BirthDate = DateTime.Now,
-                Price = 3400,
-                Sex = "F",
-                Status = 1
-            },
-            new AnimalDto {
-                AnimalId = Guid.NewGuid(),
-                Code = "005",
-                Name = "Test 5",
-                BreedName = "Breed 5",
-                BirthDate = DateTime.Now,
-                Price = 1800,
-                Sex = "F",
-                Status = 1
-            }
-        };
-    }
-
 }

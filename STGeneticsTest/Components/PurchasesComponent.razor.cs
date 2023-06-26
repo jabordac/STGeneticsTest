@@ -33,12 +33,10 @@ public partial class PurchasesComponent
 
     private async Task<TableData<PurchaseDetailDto>> PurchasedAnimalsReload(TableState state)
     {
-        try
-        {
-            IEnumerable<PurchaseDetailDto> data = PurchaseDetails;
+        IEnumerable<PurchaseDetailDto> data = PurchaseDetails;
         //await httpClient.GetFromJsonAsync<List<Element>>("webapi/periodictable");
 
-            PurchaseData.PurchaseDetails = PurchaseDetails;
+        PurchaseData.PurchaseDetails = PurchaseDetails;
         PurchaseData.RecalcTotalAmount();
 
         switch (state.SortLabel)
@@ -61,12 +59,6 @@ public partial class PurchasesComponent
         }
 
         PurchasedAnimalsPagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToArray();
-        }
-        catch (Exception ex)
-        {
-
-            throw;
-        }
 
         return new TableData<PurchaseDetailDto>() { TotalItems = PurchaseData.TotalItems, Items = PurchasedAnimalsPagedData };
     }

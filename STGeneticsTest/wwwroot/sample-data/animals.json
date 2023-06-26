@@ -1,0 +1,252 @@
+[
+  {
+    "animalid": "a80a5de7-8b20-4b67-8562-db0fe9936022",
+    "code": "001",
+    "name": "Cow 1",
+    "breedname": "Red Sindhi",
+    "birthdate": "2022-10-30",
+    "sex": "Female",
+    "price": "5700",
+    "status": "Active"
+  },
+  {
+    "animalid": "24d290dd-7de0-465b-8ed1-8032ddb591a8",
+    "code": "002",
+    "name": "Cow 2",
+    "breedname": "Holstein Friesian",
+    "birthdate": "2022-11-05",
+    "sex": "Female",
+    "price": 3300,
+    "status": "Active"
+  },
+  {
+    "animalid": "68d78410-c633-4103-9121-bc08b7b9e2fc",
+    "code": "003",
+    "name": "Cow 3",
+    "breedname": "Brown Swiss",
+    "birthdate": "2022-11-07",
+    "sex": "Female",
+    "price": 3000,
+    "status": "Active"
+  },
+  {
+    "animalid": "820ed9c2-8e00-4348-a5dc-c9caaa0adf02",
+    "code": "004",
+    "name": "Cow 4",
+    "breedname": "Brown Swiss",
+    "birthdate": "2022-11-10",
+    "sex": "Female",
+    "price": 4100,
+    "status": "Active"
+  },
+  {
+    "animalid": "a0ef698a-d237-422d-a909-a334395dd1db",
+    "code": "005",
+    "name": "Cow 5",
+    "breedname": "Holstein Friesian",
+    "birthdate": "2022-11-19",
+    "sex": "Female",
+    "price": 6900,
+    "status": "Active"
+  },
+  {
+    "animalid": "c869cdb6-6815-4465-8033-f83984b6d244",
+    "code": "006",
+    "name": "Cow 6",
+    "breedname": "Jersey",
+    "birthdate": "2022-11-21",
+    "sex": "Female",
+    "price": 5200,
+    "status": "Active"
+  },
+  {
+    "animalid": "d0d078b9-3276-438b-989b-1ae9831f9a6f",
+    "code": "007",
+    "name": "Cow 7",
+    "breedname": "Bargur",
+    "birthdate": "2022-11-22",
+    "sex": "Female",
+    "price": 3500,
+    "status": "Inactive"
+  },
+  {
+    "animalid": "10f67038-b090-4d50-aa6d-17aae51d9c7f",
+    "code": "008",
+    "name": "Cow 8",
+    "breedname": "Jersey",
+    "birthdate": "2022-11-26",
+    "sex": "Female",
+    "price": 4200,
+    "status": "Active"
+  },
+  {
+    "animalid": "cc8a3abd-80b5-462e-8a0e-85146834c309",
+    "code": "009",
+    "name": "Cow 9",
+    "breedname": "Tharparkar",
+    "birthdate": "2022-12-09",
+    "sex": "Female",
+    "price": 4200,
+    "status": "Active"
+  },
+  {
+    "animalid": "68d331b9-9137-4139-b3da-21d8279b5dc0",
+    "code": "010",
+    "name": "Cow 10",
+    "breedname": "Tharparkar",
+    "birthdate": "2022-12-16",
+    "sex": "Female",
+    "price": 2900,
+    "status": "Active"
+  },
+  {
+    "animalid": "624ddbff-9aae-4024-8bfa-45524a46cc5a",
+    "code": "011",
+    "name": "Bull 1",
+    "breedname": "Beefmaster",
+    "birthdate": "2022-12-17",
+    "sex": "Male",
+    "price": 5300,
+    "status": "Active"
+  },
+  {
+    "animalid": "39b628ee-d8a5-4e1e-a227-4dc776d68827",
+    "code": "012",
+    "name": "Bull 2",
+    "breedname": "Beefmaster",
+    "birthdate": "2022-12-20",
+    "sex": "Male",
+    "price": 5900,
+    "status": "Active"
+  },
+  {
+    "animalid": "c52f5b02-2103-43a3-a377-db43b690509f",
+    "code": "013",
+    "name": "Bull 3",
+    "breedname": "Zebu",
+    "birthdate": "2022-12-27",
+    "sex": "Male",
+    "price": 4900,
+    "status": "Inactive"
+  },
+  {
+    "animalid": "4d807a82-7d78-4d81-bdad-fa98329b8471",
+    "code": "014",
+    "name": "Bull 4",
+    "breedname": "Brangus",
+    "birthdate": "2022-12-29",
+    "sex": "Male",
+    "price": 3300,
+    "status": "Active"
+  },
+  {
+    "animalid": "e4e195f5-f658-46fc-baa9-45f82f4a917d",
+    "code": "015",
+    "name": "Bull 5",
+    "breedname": "Normande",
+    "birthdate": "2023-01-05",
+    "sex": "Male",
+    "price": 7900,
+    "status": "Active"
+  },
+  {
+    "animalid": "3018a12c-7b66-40ca-b6a0-1715341bb0ab",
+    "code": "016",
+    "name": "Bull 6",
+    "breedname": "Brangus",
+    "birthdate": "2023-01-08",
+    "sex": "Male",
+    "price": 4800,
+    "status": "Active"
+  },
+  {
+    "animalid": "b8625583-e8be-47e4-84f2-2c14b0b0f06c",
+    "code": "017",
+    "name": "Bull 7",
+    "breedname": "Limousin",
+    "birthdate": "2023-01-22",
+    "sex": "Male",
+    "price": 7600,
+    "status": "Active"
+  },
+  {
+    "animalid": "587e5fb1-9702-4912-8bf7-19c1d5f6e3af",
+    "code": "018",
+    "name": "Bull 8",
+    "breedname": "Zebu",
+    "birthdate": "2023-01-26",
+    "sex": "Male",
+    "price": 5700,
+    "status": "Active"
+  },
+  {
+    "animalid": "305c5404-5589-4121-a5e0-7770e95d8e92",
+    "code": "019",
+    "name": "Bull 9",
+    "breedname": "Normande",
+    "birthdate": "2023-02-06",
+    "sex": "Male",
+    "price": 5000,
+    "status": "Active"
+  },
+  {
+    "animalid": "19a7a0c5-8ec7-45c8-85ce-48b403a5e816",
+    "code": "020",
+    "name": "Bull 10",
+    "breedname": "Limousin",
+    "birthdate": "2023-02-12",
+    "sex": "Male",
+    "price": 4600,
+    "status": "Active"
+  },
+  {
+    "animalid": "dc46f5a5-064d-43d8-a6ad-70007d7a2500",
+    "code": "021",
+    "name": "Cow 11",
+    "status": "Active",
+    "breedname": "Zebu",
+    "birthdate": "2023-01-08",
+    "sex": "Female",
+    "price": 4200
+  },
+  {
+    "status": "Active",
+    "animalid": "a4cf6b07-b97f-4914-96ab-98c29d2f178c",
+    "name": "Cow 12",
+    "code": "022",
+    "breedname": "Brown Swiss",
+    "birthdate": "2022-11-19",
+    "sex": "Female",
+    "price": 3700
+  },
+  {
+    "status": "Active",
+    "animalid": "fd6b7428-83d1-4cca-bff6-945e1edc0004",
+    "name": "Bull 11",
+    "code": "023",
+    "breedname": "Jersey",
+    "birthdate": "2022-10-30",
+    "sex": "Male",
+    "price": 4700
+  },
+  {
+    "status": "Active",
+    "animalid": "ba5359b9-6f4e-47d4-9ee0-627e88f704b7",
+    "name": "Cow 13",
+    "code": "024",
+    "breedname": "Holstein Friesian",
+    "birthdate": "2023-02-12",
+    "sex": "Female",
+    "price": 7200
+  },
+  {
+    "status": "Active",
+    "animalid": "583a4970-6b51-429e-b6ab-20c183006add",
+    "code": "025",
+    "name": "Bull 12",
+    "breedname": "Bargur",
+    "birthdate": "2022-12-29",
+    "sex": "Male",
+    "price": 3000
+  }
+]

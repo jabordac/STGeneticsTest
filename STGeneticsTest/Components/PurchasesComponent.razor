@@ -4,7 +4,7 @@
 @if (PurchaseDetails.Any())
 {
     <MudTable @ref="PurchasedAnimalsTable" T="PurchaseDetailDto"
-              HeaderClass="indigo lighten-5" Breakpoint="Breakpoint.MdAndUp" Class="mt-4"
+              HeaderClass="indigo lighten-5" RowClass="mud-input-control-fix-stg" Breakpoint="Breakpoint.MdAndUp" Class="mt-4"
               GroupBy="@BreedGroupDefinition" ServerData="@(new Func<TableState, Task<TableData<PurchaseDetailDto>>>(PurchasedAnimalsReload))"
               Dense="true" Hover="true" Bordered="true" MultiSelection="false"
               GroupHeaderStyle="background-color: var(--mud-palette-drawer-background);">

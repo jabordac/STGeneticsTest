@@ -9,5 +9,5 @@ public class AnimalDto
     public DateTime? BirthDate { get; set; }
     public string Sex { get; set; }
     public decimal? Price { get; set; }
-    public int? Status { get; set; }
+    public string Status { get; set; }
 }
