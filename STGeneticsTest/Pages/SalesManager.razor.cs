@@ -13,7 +13,11 @@ public partial class SalesManager
         {
             foreach (var animal in selectedAnimals)
             {
-                if(PurchaseDetails.Any(x => x.Animal.AnimalId == animal.AnimalId))
+                if(animal.Status == "Inactive")
+                {
+
+                }   
+                else if(PurchaseDetails.Any(x => x.Animal.AnimalId == animal.AnimalId))
                 {
 
                 }
@@ -25,8 +29,6 @@ public partial class SalesManager
                         Animal = animal,
                         Quantity = 1
                     };
-
-                    //item.RecalcTotalAmount();
 
                     PurchaseDetails.Add(item);
                 }
