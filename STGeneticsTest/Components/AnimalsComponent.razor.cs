@@ -53,17 +53,7 @@ public partial class AnimalsComponent
 
     private async Task<TableData<AnimalDto>> AnimalsReload(TableState state)
     {
-        IEnumerable<AnimalDto> data;
-
-        try
-        {
-             data = await Http.GetFromJsonAsync<AnimalDto[]>("sample-data/animals.json");
-        }
-        catch (Exception ex)
-        {
-
-            throw;
-        }
+        IEnumerable<AnimalDto> data = await Http.GetFromJsonAsync<AnimalDto[]>("sample-data/animals.json");
 
         data = data.Where(element =>
         {

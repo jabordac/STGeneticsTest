@@ -9,8 +9,6 @@ public partial class PurchasesComponent
 {
     [Parameter] public List<PurchaseDetailDto> PurchaseDetails { get; set; }
 
-    //private HashSet<AnimalDto> SelectedAnimals = new HashSet<AnimalDto>();
-
     private MudTable<PurchaseDetailDto> PurchasedAnimalsTable;
     private IEnumerable<PurchaseDetailDto> PurchasedAnimalsPagedData;
     private PurchaseDto PurchaseData = new();
@@ -34,7 +32,6 @@ public partial class PurchasesComponent
     private async Task<TableData<PurchaseDetailDto>> PurchasedAnimalsReload(TableState state)
     {
         IEnumerable<PurchaseDetailDto> data = PurchaseDetails;
-        //await httpClient.GetFromJsonAsync<List<Element>>("webapi/periodictable");
 
         PurchaseData.PurchaseDetails = PurchaseDetails;
         PurchaseData.RecalcTotalAmount();
@@ -68,7 +65,6 @@ public partial class PurchasesComponent
         item.DiscountPercentage = (item.Quantity > 5) ? 5 : 0;
         item.RecalcTotalAmount();
 
-        //PurchaseData.PurchaseDetails = PurchaseDetails;
         PurchaseData.RecalcTotalAmount();
     }
 
