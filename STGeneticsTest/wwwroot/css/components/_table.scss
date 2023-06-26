@@ -1,0 +1,20 @@
+.mud-table {
+    .mud-toolbar {
+        height: auto;
+    }
+
+    .mud-table-foot .mud-table-cell-checkbox {
+        display: none;
+    }
+
+    .mud-input-control {
+        &.mud-input-number-control {
+            margin-top: 0;
+        }
+
+        .mud-input.mud-input-text.mud-shrink {
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+﻿@using System.Globalization;
+@using STGeneticsWeb.Models.Dtos;
+
+@if (PurchaseDetails.Any())
+{
+    <MudTable @ref="PurchasedAnimalsTable" T="PurchaseDetailDto"
+              HeaderClass="indigo lighten-5" Breakpoint="Breakpoint.MdAndUp" Class="mt-4"
+              GroupBy="@BreedGroupDefinition" ServerData="@(new Func<TableState, Task<TableData<PurchaseDetailDto>>>(PurchasedAnimalsReload))"
+              Dense="true" Hover="true" Bordered="true" MultiSelection="false"
+              GroupHeaderStyle="background-color: var(--mud-palette-drawer-background);">
+        <ColGroup>
+            <col style="width: 5%;" />
+            <col style="width: 30%;" />
+            <col />
+            <col />
+            <col />
+            <col style="width: 10%;" />
+            <col />
+            <col />
+        </ColGroup>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortLabel="Code" T="PurchaseDto">Code</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Name" T="PurchaseDto">Name</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="BirthDate" T="PurchaseDto">BirthDate</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Sex" T="PurchaseDto">Sex</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Price" T="PurchaseDto">Price</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Quantity" T="PurchaseDto">Quantity</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="DiscountPercentage" T="PurchaseDto">Discount</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="TotalAmount" T="PurchaseDto">Total</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <GroupHeaderTemplate>
+            <MudTh colspan="8">@($"{context.Key}")</MudTh>
+        </GroupHeaderTemplate>
+        <RowTemplate>
+            <MudTd DataLabel="Code">@context.Animal.Code</MudTd>
+            <MudTd DataLabel="Name">@context.Animal.Name</MudTd>
+            <MudTd DataLabel="BirthDate">@context.Animal.BirthDate!.Value.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Sex">@context.Animal.Sex</MudTd>
+            <MudTd DataLabel="Price">@context.Animal.Price!.Value.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudTd>
+            <MudTd DataLabel="Quantity">
+                <MudNumericField @bind-Value="@context.Quantity" Margin="Margin.None"
+                    AutoFocus="true" Variant="Variant.Text" Min="1" Immediate="true"
+                    TextChanged="@(() => IncrementQuantity_OnChanged(@context))">
+                </MudNumericField>
+            </MudTd>
+            <MudTd DataLabel="DiscountPercentage">@context.DiscountPercentage.ToString("N1")%</MudTd>
+            <MudTd DataLabel="TotalAmount">@context.TotalAmount.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudTd>
+        </RowTemplate>
+        <FooterContent>
+            <MudTh></MudTh>
+            <MudTh></MudTh>
+            <MudTh></MudTh>
+            <MudTh>
+                <MudStack Spacing="1">
+                    <b>SubTotal Amount:</b>
+                    <b>Total Items:</b>
+                    <b>Additional Discount:</b>
+                    <b>Shipping Amount:</b>
+                    <b>Total Amount:</b>
+                </MudStack>
+            </MudTh>
+            <MudTh>
+                <MudStack Spacing="1">
+                    <MudText Typo="Typo.body2">@PurchaseData.SubTotalAmount.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudText>
+                    <MudText Typo="Typo.body2">@PurchaseData.TotalItems</MudText>
+                    <MudText Typo="Typo.body2">@PurchaseData.AdditionalDiscountPercentage.ToString("N1")%</MudText>
+                    <MudText Typo="Typo.body2">@PurchaseData.ShippingAmount.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudText>
+                    <MudText Typo="Typo.body2">@PurchaseData.TotalAmount.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudText>
+                </MudStack>
+            </MudTh>
+            <MudTh></MudTh>
+            <MudTh></MudTh>
+        </FooterContent>
+        <PagerContent>
+            <MudTablePager HideRowsPerPage="true" PageSizeOptions="new int[]{10}" />
+        </PagerContent>
+    </MudTable>
+}

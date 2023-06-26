@@ -1,0 +1,131 @@
+﻿@using System.Globalization;
+@using STGeneticsWeb.Models.Dtos;
+
+@*@bind-SelectedItems="SelectedAnimals"*@
+<MudTable @ref="AnimalsTable" T="AnimalDto"
+    HeaderClass="indigo lighten-5" Breakpoint="Breakpoint.MdAndUp"
+    ServerData="@(new Func<TableState, Task<TableData<AnimalDto>>>(AnimalsReload))"
+    Dense="true" Hover="true" Bordered="true" MultiSelection="true"
+    SelectedItemsChanged="SelectedAnimals_OnChanged">
+    <ToolBarContent>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp">
+            <MudStack Spacing="0" Class="mud-width-full mt-2 mb-3">
+                <MudText Typo="Typo.subtitle1">Filter by:</MudText>
+                <MudTextField @bind-Value="AnimalFilters.Code" Label="Code" Class="mt-0">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Name" Label="Name">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.BreedName" Label="Breed">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.BirthDate" Label="BirthDate">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Sex" Label="Sex">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Price" Label="Price">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Status" Label="Status">
+                </MudTextField>
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FilterList"
+                           Size="Size.Medium" Class="mt-4" Color="Color.Primary" DisableElevation="true"
+                           OnClick="ApplyFilter_OnClick">
+                    Filter
+                </MudButton>
+            </MudStack>
+        </MudHidden>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+            <MudStack Spacing="2" Row="true" Class="mt-0 mb-4" AlignItems="AlignItems.End">
+                <MudText Typo="Typo.body1" Style="width: 70px;" Class="mb-1">Filter by:</MudText>
+                <MudTextField @bind-Value="AnimalFilters.Code" Label="Code">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Name" Label="Name">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.BreedName" Label="Breed">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.BirthDate" Label="BirthDate">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Sex" Label="Sex">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Price" Label="Price">
+                </MudTextField>
+                <MudTextField @bind-Value="AnimalFilters.Status" Label="Status">
+                </MudTextField>
+                <MudButton Variant="Variant.Filled" IconSize="Size.Medium" StartIcon="@Icons.Material.Filled.FilterList"
+                           Size="Size.Medium" Class="px-5" Color="Color.Primary" DisableElevation="true"
+                           OnClick="ApplyFilter_OnClick">
+                    Filter
+                </MudButton>
+            </MudStack>
+        </MudHidden>
+    </ToolBarContent>
+    <ColGroup>
+        <col style="width: 1%;" />
+        <col style="width: 1%;" />
+        <col style="width: 5%;" />
+        <col style="width: 25%;" />
+        <col style="width: 20%;" />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col style="width: 5%;" />
+    </ColGroup>
+    <HeaderContent>
+        <MudTh></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Code" T="AnimalDto">Code</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Name" T="AnimalDto">Name</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="BreedName" T="AnimalDto">Breed</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="BirthDate" T="AnimalDto">BirthDate</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Sex" T="AnimalDto">Sex</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Price" T="AnimalDto">Price</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Status" T="AnimalDto">Status</MudTableSortLabel></MudTh>
+        <MudTh >
+            <MudIconButton Icon="@Icons.Material.Filled.Add" Size="Size.Small" Title="Insert" /> Add
+        </MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Cart">
+            <MudIconButton Icon="@Icons.Material.Filled.AddShoppingCart" Size="Size.Small" Title="Add to cart" OnClick=@(() => AddSelectedAnimal_OnClick(@context)) />
+        </MudTd>
+        <MudTd DataLabel="Code">@context.Code</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Breed">@context.BreedName</MudTd>
+        <MudTd DataLabel="BirthDate">@context.BirthDate!.Value.ToShortDateString()</MudTd>
+        <MudTd DataLabel="Sex">@context.Sex</MudTd>
+        <MudTd DataLabel="Price">@context.Price!.Value.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudTd>
+        <MudTd DataLabel="Status">@context.Status</MudTd>
+        <MudTd DataLabel="AdminOptions">
+            <MudStack Row="true">
+                <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Title="Update" />
+                <MudIconButton Icon="@Icons.Material.Filled.Close" Size="Size.Small" Title="Delete" />
+            </MudStack>
+        </MudTd>
+    </RowTemplate>
+    <FooterContent>
+        <MudTh colspan="3" Class="pl-0">
+            <MudButton Variant="Variant.Filled" IconSize="Size.Large" StartIcon="@Icons.Material.Filled.AddShoppingCart"
+                       Size="Size.Medium" Color="Color.Primary" DisableElevation="true"
+                       OnClick="AddSelectedAnimals_OnClick">
+                Add Selection
+            </MudButton>
+        </MudTh>
+        <MudTh></MudTh>
+        <MudTh colspan="2">
+            <MudStack Spacing="1">
+                <b>Total in page:</b>
+                <b>Selected items:</b>
+                <b>Selected total:</b>
+            </MudStack>
+        </MudTh>
+        <MudTh>
+            <MudStack Spacing="1">
+                <MudText Typo="Typo.body2">@animalsTotalPrice.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudText>
+                <MudText Typo="Typo.body2">@selectedTotalItems</MudText>
+                <MudText Typo="Typo.body2">@selectedTotalPrice.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</MudText>
+            </MudStack>
+        </MudTh>
+        <MudTh></MudTh>
+    </FooterContent>
+    <PagerContent>
+        <MudTablePager HideRowsPerPage="true" PageSizeOptions="new int[]{10}" />
+    </PagerContent>
+</MudTable>

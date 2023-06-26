@@ -1,0 +1,38 @@
+﻿@namespace STGeneticsWeb.Shared
+
+@inherits LayoutComponentBase
+
+<MudLayout>
+    <MudAppBar Dense="false" Elevation="0" DisableGutters="true" ToolBarClass="px-3 py-1" Class="mud-appbar-header-stg">
+        <MudItem Class="grey lighten-5 pa-1 rounded-pill mud-height-full">
+            <MudImage Src="/assets/images/logo_stgenetics_200.png" Alt="Logo Empresa" ObjectFit="ObjectFit.Cover" Class="mud-height-full"></MudImage>
+        </MudItem>
+        <MudDivider Vertical="true" Class="mx-5 my-3" />
+        <MudText Typo="Typo.h6">Inicio</MudText>
+        <MudSpacer />
+        <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" Size="Size.Large" />
+        <MudItem Class="ml-2">
+            <MudText Typo="Typo.subtitle1">Demo</MudText>
+            <MudText Typo="Typo.subtitle2" Class="mt-n2">Demo</MudText>
+        </MudItem>
+        <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Small" Class="ml-4" />
+    </MudAppBar>
+
+    <MudDrawer @bind-Open="@open" ClipMode="DrawerClipMode.Always" Breakpoint="Breakpoint.SmAndUp" Class="mud-drawer-fixed-stg" Elevation="0" Variant="DrawerVariant.Mini" OpenMiniOnHover="true">
+        <NavMenu Open="@open" />
+    </MudDrawer>
+
+    <MudMainContent Class="mud-main-content-stg">
+        <MudContainer Class="pa-0" MaxWidth="MaxWidth.False">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+
+    <footer class="mud-appbar-footer-stg mud-appbar mud-appbar-dense mud-appbar-fixed-bottom mud-elevation-2">
+        <MudToolBar DisableGutters="false" Class="mud-toolbar-appbar px-3 py-0">
+            <MudText Color="Color.Secondary" Typo="Typo.subtitle2">© 2023 - STGenetics</MudText>
+            <MudSpacer />
+            <MudText Color="Color.Secondary" Typo="Typo.subtitle2">@($"Sales Management")</MudText>
+        </MudToolBar>
+    </footer>
+</MudLayout>

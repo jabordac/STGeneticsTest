@@ -1,0 +1,16 @@
+﻿@page "/salesmanager"
+
+@using STGeneticsWeb.Models
+@using System.Globalization;
+@using STGeneticsWeb.Models.Dtos;
+
+<PageTitle>Sales Manager</PageTitle>
+
+@*Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+IconSize="Size.Medium" Class="mt-0"*@
+@*Items="@Animals" Filter="new Func<Animal, bool>(FilterFuncBase)"*@
+
+
+<AnimalsComponent OnSelectedAnimals="SelectedAnimals_OnChanged"></AnimalsComponent>
+
+<PurchasesComponent PurchaseDetails="PurchaseDetails"></PurchasesComponent>
