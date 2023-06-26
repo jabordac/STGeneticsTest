@@ -3,24 +3,39 @@
 @inherits LayoutComponentBase
 
 <MudLayout>
-    <MudAppBar Dense="false" Elevation="0" DisableGutters="true" ToolBarClass="px-3 py-1" Class="mud-appbar-header-stg">
-        <MudItem Class="grey lighten-5 pa-1 rounded-pill mud-height-full">
-            <MudImage Src="/assets/images/logo_stgenetics_200.png" Alt="Logo Empresa" ObjectFit="ObjectFit.Cover" Class="mud-height-full"></MudImage>
-        </MudItem>
-        <MudDivider Vertical="true" Class="mx-5 my-3" />
-        <MudText Typo="Typo.h6">Inicio</MudText>
-        <MudSpacer />
-        <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" Size="Size.Large" />
-        <MudItem Class="ml-2">
-            <MudText Typo="Typo.subtitle1">Demo</MudText>
-            <MudText Typo="Typo.subtitle2" Class="mt-n2">Demo</MudText>
-        </MudItem>
-        <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Small" Class="ml-4" />
-    </MudAppBar>
+    <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
+        <MudAppBar Dense="false" Elevation="0">
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Size="Size.Small" IconSize="Size.Small"
+                           OnClick="@ToggleDrawer" Class="mr-2" />
+            <MudText Typo="Typo.subtitle1">Home</MudText>
+            <MudSpacer />
+        </MudAppBar>
+        <MudDrawer @bind-Open="@open" ClipMode="DrawerClipMode.Always" PreserveOpenState="false"
+                   Elevation="0" Variant="DrawerVariant.Responsive" OpenMiniOnHover="false">
+            <NavMenu />
+        </MudDrawer>
+    </MudHidden>
 
-    <MudDrawer @bind-Open="@open" ClipMode="DrawerClipMode.Always" Breakpoint="Breakpoint.SmAndUp" Class="mud-drawer-fixed-stg" Elevation="0" Variant="DrawerVariant.Mini" OpenMiniOnHover="true">
-        <NavMenu Open="@open" />
-    </MudDrawer>
+    <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+        <MudAppBar Dense="false" Elevation="0" DisableGutters="true" ToolBarClass="px-3 py-1" Class="mud-appbar-header-stg">
+            <MudItem Class="grey lighten-5 pa-1 rounded-pill mud-height-full">
+                <MudImage Src="/assets/images/logo_stgenetics_200.png" Alt="Logo" ObjectFit="ObjectFit.Cover" Class="mud-height-full"></MudImage>
+            </MudItem>
+            <MudDivider Vertical="true" Class="mx-5 my-3" />
+            <MudText Typo="Typo.h6">Home</MudText>
+            <MudSpacer />
+            <MudIcon Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" Size="Size.Large" />
+            <MudItem Class="ml-2">
+                <MudText Typo="Typo.subtitle1">Demo</MudText>
+                <MudText Typo="Typo.subtitle2" Class="mt-n2">Demo</MudText>
+            </MudItem>
+            <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Small" Class="ml-4" />
+        </MudAppBar>
+
+        <MudDrawer @bind-Open="@open" ClipMode="DrawerClipMode.Always" Breakpoint="Breakpoint.SmAndUp" Class="mud-drawer-fixed-stg" Elevation="0" Variant="DrawerVariant.Mini" OpenMiniOnHover="true">
+            <NavMenu Open="@open" />
+        </MudDrawer>
+    </MudHidden>
 
     <MudMainContent Class="mud-main-content-stg">
         <MudContainer Class="pa-0" MaxWidth="MaxWidth.False">

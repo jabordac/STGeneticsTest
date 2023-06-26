@@ -2,3 +2,32 @@
 
 <PageTitle>Index</PageTitle>
 
+<div class="d-flex justify-center my-5">
+    <MudImage Src="/assets/images/logo_stgenetics_200.png" Alt="Logo" ObjectFit="ObjectFit.Fill" Class="mud-height-full"></MudImage>
+</div>
+
+<MudDivider DividerType="DividerType.Middle" Class="mb-6"></MudDivider>
+
+<MudGrid>
+    <MudItem xs="12" md="5" Class="d-flex justify-center">
+        <MudImage Src="/assets/images/slide1.png" Alt="Slide 1" ObjectFit="ObjectFit.Fill" Width="500"></MudImage>
+    </MudItem>
+    <MudItem xs="12" md="7">
+        <MudStack Row="true" Spacing="5">
+            <MudButton Class="px-5 py-3" Variant="Variant.Filled" Color="Color.Primary" Href="SalesManager">
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudIcon Size="Size.Large" Icon="@Icons.Material.Filled.Hive"></MudIcon>
+                    <MudText Typo="Typo.h4">Sales</MudText>
+                </MudStack>
+            </MudButton>
+
+            <MudButton Class="px-5 py-3" Variant="Variant.Filled" Color="Color.Primary">
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudIcon Size="Size.Large" Icon="@Icons.Material.Filled.Inventory2"></MudIcon>
+                    <MudText Typo="Typo.h4">Inventory</MudText>
+                </MudStack>
+            </MudButton>
+        </MudStack>
+    </MudItem>
+</MudGrid>
+
